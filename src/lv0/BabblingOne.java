@@ -61,11 +61,11 @@ public class BabblingOne {
         private boolean isBabbling(String babble) {
 
             String[] keywords = new String[]{"aya","ye","woo","ma"};
-            String target = babble;
-            for (String keyword : keywords) {
-                target = keywordMatch(target, keyword);
-                if(target.length() == 0) return true;
-            }
+//            String target = babble;
+//            for (String keyword : keywords) {
+//                target = keywordMatch(target, keyword);
+//                if(target.length() == 0) return true;
+//            }
 
             return false;
         }
@@ -73,17 +73,17 @@ public class BabblingOne {
 
         private String keywordMatch(String target, String keyword) {
 
-            if(target.contains(keyword)) {
-
-                int keywordIndex = target.indexOf(keyword);
-                String newStr = target.substring(keyword.length());
-                if(keywordIndex > 0) {
-                    newStr = target.substring(0, keywordIndex);
-                    newStr += target.substring(keywordIndex + keyword.length());
-                }
-
-                return newStr;
-            }
+//            if(target.contains(keyword)) {
+//
+//                int keywordIndex = target.indexOf(keyword);
+//                String newStr = target.substring(keyword.length());
+//                if(keywordIndex > 0) {
+//                    newStr = target.substring(0, keywordIndex);
+//                    newStr += target.substring(keywordIndex + keyword.length());
+//                }
+//
+//                return newStr;
+//            }
 
             return target;
         }
