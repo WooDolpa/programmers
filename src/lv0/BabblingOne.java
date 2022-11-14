@@ -1,7 +1,5 @@
 package lv0;
 
-import java.util.stream.IntStream;
-
 /**
  * packageName : lv0
  * className : BabblingOne
@@ -11,27 +9,8 @@ import java.util.stream.IntStream;
 public class BabblingOne {
     public static void main(String[] args) {
         Solution solution = new Solution();
-//        System.out.println("result : "+ solution.solution(new String[]{"aya","yee","u","maa","wyeoo"}));
-//        System.out.println("result : "+ solution.solution(new String[]{"ayaye", "uuuma", "ye", "yemawoo", "ayaa"}));
-
-
-//        String test = "yemawoo";
-//        String[] keywords = {"ma","ye","woo"};
-//
-//        for (String keyword : keywords) {
-//            if(test.contains(keyword)) {
-//
-//                int stringIdx = test.indexOf(keyword);
-//                String newStr = test.substring(keyword.length());
-//                if(stringIdx > 0) {
-//                    newStr = test.substring(0, stringIdx);
-//                    newStr += test.substring(stringIdx+keyword.length());
-//                }
-//                test = newStr;
-//            }
-//        }
-
-
+        System.out.println("result : "+ solution.solution(new String[]{"aya","yee","u","maa","wyeoo"}));
+        System.out.println("result : "+ solution.solution(new String[]{"ayaye", "uuuma", "ye", "yemawoo", "ayaa"}));
     }
 
     public static class Solution {
@@ -60,31 +39,35 @@ public class BabblingOne {
         private boolean isBabbling(String babble) {
 
             String[] keywords = new String[]{"aya","ye","woo","ma"};
-            String target = babble;
+            String newBabble = babble;
             for (String keyword : keywords) {
-                target = keywordMatch(target, keyword);
-                if(target.length() == 0) return true;
+                newBabble = keywordMatch(newBabble, keyword);
+                if(newBabble.length() == 0) return true;
             }
 
             return false;
         }
 
+        private String keywordMatch(String babble, String keyword) {
+            if(babble.contains(keyword)) {
 
-        private String keywordMatch(String target, String keyword) {
+                int keywordIndex = babble.indexOf(keyword);
 
-            if(target.contains(keyword)) {
-
-                int keywordIndex = target.indexOf(keyword);
-                String newStr = target.substring(keyword.length());
-                if(keywordIndex > 0) {
-                    newStr = target.substring(0, keywordIndex);
-                    newStr += target.substring(keywordIndex + keyword.length());
+                if(keywordIndex == 0) {
+                    return babble.substring(keyword.length());
                 }
 
-                return newStr;
-            }
+                if((keywordIndex + keyword.length()) == babble.length()) {
+                    return babble.substring(0, keywordIndex);
+                }
 
-            return target;
+                String prefix = babble.substring(0, keywordIndex);
+                String after = babble.substring((keywordIndex + keyword.length()));
+                if(prefix.length() > 1 && after.length() > 1) {
+                    return prefix+after;
+                }
+            }
+            return babble;
         }
 
     }
