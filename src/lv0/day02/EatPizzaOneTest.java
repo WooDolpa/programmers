@@ -1,4 +1,4 @@
-package lv0;
+package lv0.day02;
 
 /**
  * packageName : lv0
