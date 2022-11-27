@@ -1,5 +1,7 @@
 package lv0.day07;
 
+import java.util.Arrays;
+
 /**
  * packageName : lv0.day07
  * className : TriangleCPOneTest
@@ -21,7 +23,11 @@ public class TriangleCPOneTest {
             boolean isValidLen = (sides.length == 3);
             int answer = 0;
             if(isValidLen){
-
+                int[] newSides = Arrays.stream(sides).filter(i -> (1 <= i && i <= 1000)).sorted().toArray();
+                if((newSides[0] + newSides[1]) > newSides[2]) {
+                    return 1;
+                }
+                return 2;
             }
             return answer;
         }
