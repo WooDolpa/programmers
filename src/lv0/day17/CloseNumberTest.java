@@ -19,10 +19,15 @@ public class CloseNumberTest {
             int answer = array[0];
             int absValue = Math.abs(n-array[0]);
             for (int i=1; i< array.length; i++) {
-                int absIdxValue = Math.abs(n - array[i]);
+                int absIdxValue = Math.abs(array[i] - n);
                 if(absIdxValue < absValue) {
                     absValue = absIdxValue;
                     answer = array[i];
+                }else if(absIdxValue == absValue) {
+                    if(answer > array[i]) {
+                        answer = array[i];
+                        absValue = absIdxValue;
+                    }
                 }
             }
             return answer;
