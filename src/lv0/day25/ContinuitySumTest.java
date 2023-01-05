@@ -9,10 +9,7 @@ package lv0.day25;
 public class ContinuitySumTest {
     public static void main(String[] args) {
         Solution solution = new Solution();
-//        int[] test = solution.solution(5,5);
-//        for (int t : test) {
-//            System.out.print(t + " ");
-//        }
+        System.out.println(solution.solution(5,5));
     }
 
     /**
